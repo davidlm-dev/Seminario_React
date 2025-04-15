@@ -1,4 +1,5 @@
 export interface User {
+    id?: string; // Optional if not returned by the API
     name: string;
     age: number;
     email?: string;

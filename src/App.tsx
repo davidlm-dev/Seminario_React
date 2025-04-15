@@ -69,6 +69,14 @@ function App() {
         }));
     };
 
+    const handleUpdateUser = (updatedUser: User) => {
+        setUsers((prevUsers) =>
+            prevUsers.map((user) =>
+                user.name === updatedUser.name ? updatedUser : user
+            )
+        );
+    };
+
     const toggleDarkMode = () => {
         setUiState((prev) => {
             const newMode = !prev.isDarkMode;
@@ -116,7 +124,7 @@ function App() {
                 ) : (
                     <>
                         <h2>Bienvenido, {currentUser?.name}!</h2>
-                        <UsersList users={users} />
+                        <UsersList users={users} onUpdateUser={handleUpdateUser} />
                         <p>New users: {newUsersNumber}</p>
                         <Form onNewUser={handleNewUser} />
                     </>
