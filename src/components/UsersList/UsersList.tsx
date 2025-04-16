@@ -19,13 +19,10 @@ const UsersList: React.FC<Props> = ({ users, onUpdateUser }) => {
         setSelectedUser(null); // Close the edit component
     };
 
-    
-
-
     const renderList = (): React.ReactNode[] => {
         return users.map((user) => (
             <li
-                key={user.name}
+                key={user._id} // Cambiado de user.name a user.id para garantizar unicidad
                 className={styles.listItem}
                 onClick={() => handleUserClick(user)}
                 style={{ cursor: "pointer" }}

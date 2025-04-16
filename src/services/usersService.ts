@@ -5,6 +5,7 @@ import { User } from '../types';
 export const fetchUsers = async (): Promise<User[]> => {
     try {
         const response = await axios.get<User[]>('http://localhost:9000/api/Users');
+        console.log('Fetched users:', response.data); // Verificar si el id está presente
         return response.data;
     } catch (error) {
         console.error('Error fetching users:', error);
@@ -40,9 +41,9 @@ export const LogIn = async (email: string, password: string): Promise<User> => {
     }
 };
 
-export const updateUser = async (userId: number, updatedUser: User): Promise<User> => {
+export const updateUser = async (updatedUser: User): Promise<User> => {
     try {  
-        const response = await axios.put<User>(`http://localhost:9000/api/Users/${userId}`, updatedUser);
+        const response = await axios.put<User>(`http://localhost:9000/api/users/${updatedUser._id}`, updatedUser);
         if (response.status !== 200) {
             throw new Error('Failed to update user');
         }

@@ -14,8 +14,15 @@ const UserEdit: React.FC<UserEditProps> = ({ user, onClose, onSave }) => {
     const [age, setAge] = useState(user.age);
     const [email, setEmail] = useState(user.email);
 
-    const handleSave = () => {
-        onSave({ ...user, name, age, email }); // Pass updated user back to parent
+    const handleSave = async () => {
+        try {
+            const updatedUser = { ...user, name, age, email };
+            console.log("Saving user:", updatedUser); // Agregar log para depuración
+            await updateUser(updatedUser); // Realiza la solicitud PUT al servidor
+            onSave(updatedUser); // Actualiza el estado en el cliente
+        } catch (error) {
+            console.error("Error updating user:", error);
+        }
     };
 
     return (
