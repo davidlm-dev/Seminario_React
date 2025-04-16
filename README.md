@@ -1,7 +1,11 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+## Fuentes empleadas:
+He utilizado para este seminario:
+  -GitHub Copilot
+  -Las diapositivas de los compañeros
+  -El backend (sin modificar) que han aportado para realizar el seminario (https://github.com/DennisRuizB/EA-API-Seminari5).
 ## Available Scripts
 
 In the project directory, you can run:
